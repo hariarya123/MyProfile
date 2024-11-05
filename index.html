@@ -26,145 +26,101 @@
 
 <style>
 
-/*======================================
-//--//-->   ABOUT
-======================================*/
-
-.about-mf .box-shadow-full {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+	.one-third {
+		background-image: url(images/home.jpg);
+		background-size: contain; /* Keeps the full image visible */
+		background-position: center;
+		background-repeat: no-repeat;
+		width: 100%;
+		max-width: 300px; /* Controls max width on larger screens */
+		height: auto;
+		aspect-ratio: 4 / 3; /* Maintains consistent width-to-height ratio */
+		margin: 20px auto; /* Adds space around the image */
+		border-radius: 10px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		overflow: hidden;
+	}
+	
+	/* Responsive adjustments for various screen sizes */
+	@media (max-width: 992px) { /* Tablets */
+		.one-third {
+			max-width: 280px;
+			aspect-ratio: 4 / 3;
+			margin: 15px auto;
+		}
+	}
+	
+	@media (max-width: 768px) { /* Mobile */
+		.one-third {
+			max-width: 240px;
+			aspect-ratio: 4 / 3;
+			margin: 10px auto;
+		}
+	}
+	
+	@media (max-width: 576px) { /* Small screens */
+		.one-third {
+			max-width: 200px;
+			aspect-ratio: 4 / 3;
+			margin: 8px auto;
+		}
+	}
+	/* Flexbox alignment for the parent container */
+.parent-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns child elements to the right */
+    padding-right: 20px; /* Optional: Adds space on the right */
 }
 
-.about-mf .about-img {
-  margin-bottom: 2rem;
-}
-
-.about-mf .about-img img {
-  margin-left: 10px;
-}
-
-
-.skill-mf .progress {
-  /* background-color: #cde1f8; */
-  margin: .5rem 0 1.2rem 0;
-  border-radius: 0;
-  height: .7rem;
-}
-
-.skill-mf .progress .progress-bar {
-  height: .7rem;
-  background-color: #ffbd39;
-}
-
-
-/* Animation styles */
-#typing-animation {
-  position: relative;
-  font-size: 30px;
-  font-weight: bold;
-  color: rgb(255, 255, 255);
-  overflow: hidden;
-  white-space: nowrap;
-  animation: typing 3s steps(20, end) infinite;
-}
-
-#typing-animation:before {
-  content: "";
-  /* position: absolute; */
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background-color: #ccc;
-  animation: typing-cursor 0.5s ease-in-out infinite;
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes typing-cursor {
-  from {
-    width: 5px;
-  }
-  to {
-    width: 0;
-  }
-}
-
+/* Styling for the image container */
 .one-third {
     background-image: url(images/home.jpg);
-    height: 200px; /* Adjust height as needed */
-    width: 200px; /* Adjust width as needed */
-}
-
-/* project image zoom effect */
-
-.zoom-effect {
-  overflow: hidden;
-  transition: transform 0.3s ease-out;
-}
-
-.zoom-effect:hover {
-  transform: scale(1.1);
-}
-/* Ensure container fills the viewport height for better layout */
-.ftco-section {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-}
-
-/* Styling for the project cards */
-.project-card {
-    background: #0c0a0a;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 4 / 3;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.content-container {
+    display: flex;
+    align-items: center; /* Aligns items vertically */
+}
+
+.image-section img {
+    max-width: 150px; /* Control image size */
+    margin-right: 20px; /* Space between image and text */
+    border-radius: 5px;
+}
+
+.content-section {
     display: flex;
     flex-direction: column;
+}
+
+.cta-section {
+    display: flex;
     align-items: center;
+    margin-top: 10px;
 }
 
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.cta-section div {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-right: 15px; /* Space between price and button */
 }
 
-.project-card h1, .project-card h4 {
-    color: #3a3939;
+.cta-section .btn {
+    padding: 5px 15px;
 }
-
-.project-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
-.project-card img:hover {
-    transform: scale(1.05);
-}
-
-.project-name {
-    margin-top: 1rem;
-    font-weight: 500;
-    color: #d1ec08;
-}
-
-/* Adjustments for larger screens */
-@media (min-width: 768px) {
-    .project-card {
-        padding: 2.5rem;
-    }
-}
-
 
 
 </style>
@@ -199,9 +155,15 @@
 				<div class="container">
 					<div class="row d-md-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
 						<!-- Image Section -->
-						<div class="one-third js-fullheight order-md-last img" style="background-image: url(images/home.jpg);">
-							<div class="overlay"></div>
-						</div>
+						<div class="col-sm-2 col-md-3">
+							<div class="about-img">
+							  <img src="images/home.jpg" class="img-fluid rounded b-shadow-a" alt="Placeholder Image">
+
+							</div>
+						  </div>
+						
+						
+						
 	
 						<!-- Text Section -->
 						<div class="one-forth d-flex align-items-center ftco-animate" data-scrollax="properties: { translateY: '70%' }">
@@ -269,7 +231,7 @@
 						<div class="img-about img d-flex align-items-stretch">
 							<div class="overlay">
 								<div class="row">
-									<div class="col-sm-6 col-md-5">
+									<div class="col-sm-8 col-md-7">
 									  <div class="about-img">
 										<img src="images/home.jpg" class="img-fluid rounded b-shadow-a" alt="Placeholder Image">
 
@@ -278,14 +240,13 @@
 									<!-- Details next to profile image -->
 									<div class="col-sm-6 col-md-7">
 									  <div class="about-info">
-										<p><span class="title-s">Name: </span> <span>Yakkali Hari Krishna</span></p>
 										
 									  </div>
 									</div>
 								  </div>
 
 								<div class="skill-mf">
-									<p class="title-s">Skills</p>
+									
 									<div id="page-3" class="page three">
 										<h2 class="heading">Skills</h2>
 										<!-- Skill Section -->
@@ -372,44 +333,78 @@
 	
 	<section class="ftco-section ftco-no-pb" id="resume-section">
 		<div class="container">
-			<div class="row justify-content-center pb-5">
-				<div class="col-md-4 d-flex align-items-stretch">
-					<div class="project-card ftco-animate">
-						<h4 class="mb-4">Visit from here</h4>
-						<h1 class="big big-2">My Work</h1>
-						<a href="https://github.com/hariarya123/findme">
+			
+				
+
+
+				<div class="card-body">
+					<div class="content-container">
+						<!-- Image Section (Left) -->
+						<div class="image-section">
 							<img src="images/prj.jpg" alt="Project 1 Image" class="img-fluid">
-						</a>
-						<p class="project-name">Find me</p>
+						</div>
+						
+						<!-- Text and CTA Section (Right) -->
+						<div class="content-section">
+							<h5 class="card-title fw-bold">Find me</h5>
+							<p class="card-text">FindMe helps travelers locate essential products nearby with real-time location and state-based guidance.</p>
+							<div class="cta-section">
+								<div>Resource:</div>
+								<a href="https://github.com/hariarya123/findme" class="btn btn-light">visit Now</a>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="col-md-4 d-flex align-items-stretch">
-					<div class="project-card ftco-animate">
-						<h1 class="big big-2">My Dream</h1>
-						<h4 class="mb-4">Visit from here</h4>
-						<a href="">
-							<img src="images/prg2.jpg" alt="Project 2 Image" class="img-fluid">
-						</a>
-						<p class="project-name">chatbot</p>
+
+
+
+
+				<div class="card-body">
+					<div class="content-container">
+						<!-- Image Section (Left) -->
+						<div class="image-section">
+							<img src="images/long.jpg" alt="Project 2 Image" class="img-fluid">
+						</div>
+						
+						<!-- Text and CTA Section (Right) -->
+						<div class="content-section">
+							<h5 class="card-title fw-bold">chatBot</h5>
+							<p class="card-text">A simple chatbot that delivers helpful responses and can access various desktop apps</p>
+							<div class="cta-section">
+								<div>Resource:</div>
+								<a href="#" class="btn btn-light">visit Now</a>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="col-md-4 d-flex align-items-stretch">
-					<div class="project-card ftco-animate">
-						<h1 class="big big-2">My Aim</h1>
-						<h4 class="mb-4">Visit from here</h4>
-						<a href="https://github.com/hariarya123/taskmanager">
-							<img src="images/prj31.png" alt="Project 3 Image" class="img-fluid">
-						</a>
-						<p class="project-name">Task Manager</p>
+
+				<div class="card-body">
+					<div class="content-container">
+						<!-- Image Section (Left) -->
+						<div class="image-section">
+							<img src="images/task.png" alt="Project 3 Image" class="img-fluid">
+						</div>
+						
+						<!-- Text and CTA Section (Right) -->
+						<div class="content-section">
+							<h5 class="card-title fw-bold">Task maker</h5>
+							<p class="card-text">A task manager that enables you to efficiently add, update, organize, and delete tasks</p>
+							<div class="cta-section">
+								<div>Resource: </div>
+								<a href="https://github.com/hariarya123/taskmanager" class="btn btn-light">visit Now</a>
+							</div>
+						</div>
 					</div>
 				</div>
+			
 			</div>
 		</div>
 	</section>
 	
 		
 
-		
+	
+	
 		
 		<div class="row">
 			<h1 class="big-4">Education</h1>
